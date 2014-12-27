@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- App Name -->
+    <string name="app_name">SAnd</string>
+
+    <!-- MainActivity -->
+    <string name="pressure">Luftdruck</string>
+    <string name="height">Höhe</string>
+    <string name="orientation">Orientierung</string>
+
+    <!-- AboutActivity -->
+    <string name="about_version">SAnd Version %1$s (%2$d)</string>
+    <string name="about_license">SAnd ist lizensiert unter GNU GPLv3.</string>
+    <string name="about_more">Für mehr Informationen: %s</string>
+    <string name="about_link">&lt;a href=&quot;https://github.com/kas70/SAnd&quot;&gt;website&lt;/a&gt;</string>
+
+    <!-- SettingsActivity -->
+    <string name="heightcor">Höhenkorrektur</string>
+    <string name="description_deleteHeightcor_checked">Höhenkorrektur wird beim Start zurückgesetzt</string>
+    <string name="description_deleteHeightcor_unchecked">Höhenkorrektur wird gespeichert, solange sie nicht manuell gelöscht wird</string>
+
+
+    <!-- Toasts -->
+    <string name="heightcor_deleted">Höhenkorrektur gelöscht.</string>
+    <string name="heightcor_set">Höhenkorrektur übernommen.</string>
+
+    <!-- Menuitem -->
+    <string name="action_adjustheight">Höhe korrigieren</string>
+    <string name="action_delete_heightcor">Höhenkorrektur löschen</string>
+    <string name="quit">Beenden</string>
+    <string name="settings">Einstellungen</string>
+    <string name="title_activity_tracker">TrackerActivity</string>
+
+
+    <string name="nobarometer">Gerät besitzt kein Barometer.</string>
+
+    <string name="cancel">Abbrechen</string>
+    <string name="ok">OK</string>
+
+    <string name="about">Über</string>
+
+</resources>

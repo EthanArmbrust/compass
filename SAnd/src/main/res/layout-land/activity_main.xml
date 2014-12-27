@@ -1,0 +1,65 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="20dp"
+    android:paddingLeft="20dp"
+    android:paddingTop="20dp"
+    android:weightSum="1"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/imageViewCompass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:paddingLeft="40dp"
+        android:src="@drawable/compass1"></ImageView>
+
+    <View
+        android:layout_width="2dp"
+        android:layout_height="fill_parent"
+        android:layout_toRightOf="@id/imageViewCompass"
+        android:background="@android:color/darker_gray">
+
+    </View>
+
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/imageViewCompass"
+        android:paddingBottom="40dp"
+        android:paddingLeft="50dp"
+        android:text="orientation"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/alt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/tv"
+        android:layout_toRightOf="@id/imageViewCompass"
+        android:paddingLeft="50dp"
+        android:text="altimeter"
+
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/alt"
+        android:layout_toRightOf="@id/imageViewCompass"
+        android:paddingLeft="50dp"
+        android:text="barometer"
+
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+</RelativeLayout>

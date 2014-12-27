@@ -1,0 +1,36 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:App="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/settings"
+        android:icon="@drawable/ic_action_settings"
+        android:title="@string/settings"
+        App:showAsAction="ifRoom" />
+
+    <!--
+    <item
+        android:id="@+id/tracker"
+        android:icon="@drawable/ic_media_play"
+        android:title="Tracker"
+        App:showAsAction="ifRoom" />
+
+        -->
+    <item
+        android:id="@+id/changeheight"
+        android:icon="@drawable/ic_action_change"
+        android:title="@string/action_adjustheight"
+        App:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/deleteHeightDiff"
+        android:icon="@drawable/ic_action_delete"
+        android:title="@string/action_delete_heightcor"
+        App:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/close"
+        android:icon="@drawable/ic_action_cancel"
+        android:title="@string/quit"
+        App:showAsAction="ifRoom" />
+
+
+</menu>

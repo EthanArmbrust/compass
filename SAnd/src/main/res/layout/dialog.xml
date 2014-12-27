@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <EditText
+        android:id="@+id/editHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:inputType="number"/>
+
+    <Button
+        android:id="@+id/increaseHeight"
+        android:text="@string/increase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/editHeight"
+        android:layout_toRightOf="@id/editHeight"
+        android:paddingLeft="5dp"
+        />
+
+    <Button
+        android:id="@+id/decreaseHeight"
+        android:text="@string/decrease"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/editHeight"
+        android:layout_toLeftOf="@id/editHeight"
+        android:paddingRight="5dp"
+        />
+
+    <Button
+        android:id="@+id/button1"
+        android:text="@string/ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editHeight"
+        android:layout_alignParentRight="true"
+        />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editHeight"
+        android:text="@string/cancel" />
+</RelativeLayout>
