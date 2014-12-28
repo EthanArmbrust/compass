@@ -19,7 +19,9 @@
     <string name="heightcor">Höhenkorrektur</string>
     <string name="description_deleteHeightcor_checked">Höhenkorrektur wird beim Start zurückgesetzt</string>
     <string name="description_deleteHeightcor_unchecked">Höhenkorrektur wird gespeichert, solange sie nicht manuell gelöscht wird</string>
-
+    <string name="pref_unit_item_imperial">Imperiales System</string>
+    <string name="pref_unit_item_metric">Metrisches System</string>
+    <string name="pref_unit_summary">Maßeinheit wählen</string>
 
     <!-- Toasts -->
     <string name="heightcor_deleted">Höhenkorrektur gelöscht.</string>
@@ -39,5 +41,8 @@
     <string name="ok">OK</string>
 
     <string name="about">Über</string>
+    <string name="decrease"></string>
+    <string name="pref_unit_title">Maßeinheit</string>
+
 
 </resources>

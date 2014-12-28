@@ -27,6 +27,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -41,46 +42,57 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+public class MainActivity extends ActionBarActivity implements SensorEventListener, SharedPreferences.OnSharedPreferenceChangeListener {
 
-public class MainActivity extends ActionBarActivity implements SensorEventListener {
-
-    public static final String PREF_1 = "HeightStore";
+    public static final String PREFS = "PrefsFile";
     TextView tv, altitude, baro;
-    float height;
+    double height;
     private ImageView image;
     private float currentDegree = 0;
     private int heightdif = 0;
     private SensorManager sm;
-
-
+    private boolean unitIsMetric = true;
     private boolean hasBarometer = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //check if device has barometer
         PackageManager pm = this.getPackageManager();
         if (!pm.hasSystemFeature(PackageManager.FEATURE_SENSOR_BAROMETER)) {
             hasBarometer = false;
         }
+        //set layout
         setContentView(R.layout.activity_main);
+
         image = (ImageView) findViewById(R.id.imageViewCompass);
-        //image.setOnTouchListener((View.OnTouchListener)this);
         tv = (TextView) findViewById(R.id.tv);
         altitude = (TextView) findViewById(R.id.alt);
         baro = (TextView) findViewById(R.id.bar);
-        sm = (SensorManager) getSystemService(SENSOR_SERVICE);
-        SharedPreferences settings = getSharedPreferences(PREF_1, 0);
-        heightdif = settings.getInt("heightdif", 0);
-    }
 
+        sm = (SensorManager) getSystemService(SENSOR_SERVICE);
+
+        //restore preferences
+        SharedPreferences settings = getSharedPreferences(PREFS, 0);
+        heightdif = settings.getInt("heightdif", 0);
+        applyHeightcorSetting();
+        unitIsMetric = settings.getBoolean("unit", true);
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        sp.registerOnSharedPreferenceChangeListener(this);
+        
+
+    }
 
     @Override
     protected void onStop() {
         super.onStop();
-        SharedPreferences settings = getSharedPreferences(PREF_1, 0);
+        //store preferences
+        SharedPreferences settings = getSharedPreferences(PREFS, 0);
         SharedPreferences.Editor editor = settings.edit();
         editor.putInt("heightdif", heightdif);
-        editor.apply();
+        editor.putBoolean("unit", unitIsMetric);
+        editor.commit();
     }
 
 
@@ -116,28 +128,54 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
         sm.unregisterListener(this);
     }
 
+    //needs refactoring, bad code
     public void onSensorChanged(SensorEvent event) {
         float degree;
         float pressure;
         if (Sensor.TYPE_PRESSURE == event.sensor.getType()) {
             pressure = event.values[0];
-
             if (hasBarometer) {
-                baro.setText(getString(R.string.pressure) + ": " + (int) pressure + "hPa");
+                if (unitIsMetric) {
+                    baro.setText(getString(R.string.pressure) + ": " + (int) pressure + "hPa");
+                } else {
+                    double h = (double) pressure;
+                    h = h * 0.02952998751;
+                    baro.setText(getString(R.string.pressure) + ": " + (int) h + "inHg");
+                }
 
-                height = (SensorManager.getAltitude(SensorManager.PRESSURE_STANDARD_ATMOSPHERE, pressure)) + heightdif;
+                if (unitIsMetric) {
+                    height = (SensorManager.getAltitude(SensorManager.PRESSURE_STANDARD_ATMOSPHERE, pressure)) + heightdif;
+                } else {
+                    height = ((SensorManager.getAltitude(SensorManager.PRESSURE_STANDARD_ATMOSPHERE, pressure)) + heightdif) * 3.2808;
+                    heightdif = (int) (((int) heightdif) * 3.2808);
+                }
 
                 String text;
                 if (heightdif != 0) {
                     if (heightdif > 0) {
-                        text = getString(R.string.height) + ": " + Integer.toString((int) height) + "m" + " (+" + Integer.toString(heightdif) + ")";
+                        if (unitIsMetric) {
+                            text = getString(R.string.height) + ": " + Integer.toString((int) height) + "m" + " (+" + Integer.toString(heightdif) + ")";
+                        } else {
+                            text = getString(R.string.height) + ": " + Integer.toString((int) height) + "ft" + " (+" + Integer.toString(heightdif) + ")";
+                        }
                     } else {
-                        text = getString(R.string.height) + ": " + Integer.toString((int) height) + "m" + " (" + Integer.toString(heightdif) + ")";
+                        if (unitIsMetric) {
+                            text = getString(R.string.height) + ": " + Integer.toString((int) height) + "m" + " (" + Integer.toString(heightdif) + ")";
+                        } else {
+                            text = getString(R.string.height) + ": " + Integer.toString((int) height) + "ft" + " (" + Integer.toString(heightdif) + ")";
+
+                        }
 
                     }
                 } else {
-                    text = getString(R.string.height) + ": " + Integer.toString((int) height) + "m";
+                    if (unitIsMetric) {
+                        text = getString(R.string.height) + ": " + Integer.toString((int) height) + "m";
+                    } else {
+                        text = getString(R.string.height) + ": " + Integer.toString((int) height) + "ft";
+
+                    }
                 }
+
                 altitude.setText(text);
             } else {
                 baro.setText(getString(R.string.nobarometer));
@@ -146,6 +184,7 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
         } else {
             degree = Math.round(event.values[0]);
             tv.setText(getString(R.string.orientation) + ": " + Integer.toString((int) degree) + "°");
+
             //animation for rotating the image
             RotateAnimation animation = new RotateAnimation(currentDegree, -degree, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
             animation.setDuration(210);
@@ -265,5 +304,17 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
 
         d.show();
     }
-}
 
+    public void applyHeightcorSetting() {
+        Boolean deleteHeightcor = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("PREF_HEIGHT", false);
+        if (deleteHeightcor) heightdif = 0;
+    }
+
+    //set the measurement unit
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        String string = sp.getString("PREF_UNIT", "none");
+        unitIsMetric = string.equals("metric");
+    }
+}

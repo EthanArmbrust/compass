@@ -5,11 +5,21 @@
 
     <CheckBoxPreference
         android:defaultValue="false"
-        android:key="pref_height"
+        android:key="PREF_HEIGHT"
         android:onClick="onCheckboxClicked"
-        android:summaryOn="@string/description_deleteHeightcor_checked"
         android:summaryOff="@string/description_deleteHeightcor_unchecked"
+        android:summaryOn="@string/description_deleteHeightcor_checked"
         android:title="@string/heightcor" />
+
+    <ListPreference
+        android:defaultValue="metric"
+        android:entries="@array/pref_unit_listentries"
+        android:entryValues="@array/pref_unit_listvalues"
+        android:key="PREF_UNIT"
+        android:summary="@string/pref_unit_summary"
+        android:title="@string/pref_unit_title" />
+
+
     <Preference android:title="@string/about">
         <intent android:action=".AboutActivity" />
     </Preference>

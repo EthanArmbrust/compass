@@ -15,6 +15,10 @@
     <string name="heightcor">Heightcorrection</string>
     <string name="description_deleteHeightcor_checked">Heightcorrection is deleted on startup</string>
     <string name="description_deleteHeightcor_unchecked">Heightcorrection is stored as long as it is not deleted manually</string>
+    <string name="pref_unit_item_metric">Metric system</string>
+    <string name="pref_unit_item_imperial">Imperial system</string>
+    <string name="pref_unit_summary">Choose measurement unit</string>
+    <string name="pref_unit_title">Measurement unit</string>
 
     <!-- AboutActivity -->
     <string name="about_version">SAnd Version %1$s (%2$d)</string>
