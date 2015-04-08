@@ -41,6 +41,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+//test
 
 public class MainActivity extends ActionBarActivity implements SensorEventListener, SharedPreferences.OnSharedPreferenceChangeListener {
 
