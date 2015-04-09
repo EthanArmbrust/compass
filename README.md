@@ -6,7 +6,6 @@ important:
 - showing height and air pressure only works, if your phone has a built-in barometer (if this is not the case it provides you a simple compass with orientation in degree)
 - calculated height is based on [standard atmosphere](https://en.wikipedia.org/wiki/International_Standard_Atmosphere) and can be corrected within the app, if you know your real height
 
-![screenshot](https://raw.githubusercontent.com/kas70/SAnd/master/screenshot.png)
 
 Notes
 ====
@@ -16,13 +15,13 @@ Notes
 
 Feature Requests
 ===
-=> [click here](https://github.com/kas70/SAnd/issues/new)
+=> [click here](https://gitlab.com/kas70/SAnd/issues/new)
 
 Building
 ====
 Should work with
 ```
-git clone --recursive https://github.com/kas70/SAnd.git
+git clone --recursive https://gitlab.com/kas70/SAnd.git
 cd SAnd/
 ./gradlew build
 ```
