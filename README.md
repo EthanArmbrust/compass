@@ -9,7 +9,7 @@ important:
 
 Notes
 ====
-- translations are missing (english and german only)
+- application translated in English, French and German only
 - code contains (many) bugs for sure and is not cleaned up yet
 
 
