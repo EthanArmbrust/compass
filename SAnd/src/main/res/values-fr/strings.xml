@@ -12,33 +12,33 @@
     <string name="decrease">-</string>
 
     <!-- SettingsActivity -->
-    <string name="heightcor">Correction de l'élevation</string>
-    <string name="description_deleteHeightcor_checked">La correction d'élevation est supprimée au démarrage</string>
-    <string name="description_deleteHeightcor_unchecked">La correction d'élevation est stockée tant qu'elle n'est pas supprimée manuellement</string>
+    <string name="heightcor">Correction de l\'élevation</string>
+    <string name="description_deleteHeightcor_checked">La correction d\'élevation est supprimée au démarrage</string>
+    <string name="description_deleteHeightcor_unchecked">La correction d\'élevation est stockée tant qu\'elle n\'est pas supprimée manuellement</string>
     <string name="pref_unit_item_metric">Système métrique</string>
     <string name="pref_unit_item_imperial">Système impérial</string>
-    <string name="pref_unit_summary">Choisir l'unité de mesure</string>
+    <string name="pref_unit_summary">Choisir l\'unité de mesure</string>
     <string name="pref_unit_title">Unité de mesure</string>
 
     <!-- AboutActivity -->
     <string name="about_version">SAnd Version %1$s (%2$d)</string>
     <string name="about_license">SAnd est couvert par la license GNU GPLv3.</string>
-    <string name="about_more">Pour plus d'information: %s</string>
+    <string name="about_more">Pour plus d\'information: %s</string>
     <string name="about_link">&lt;a href=&quot;https://github.com/kas70/SAnd&quot;&gt;website&lt;/a&gt;</string>
 
     <!-- Toasts -->
-    <string name="heightcor_deleted">Correction de l'élevation supprimée.</string>
-    <string name="heightcor_set">Correction de l'élevation prise en compte.</string>
+    <string name="heightcor_deleted">Correction de l\'élevation supprimée.</string>
+    <string name="heightcor_set">Correction de l\'élevation prise en compte.</string>
 
     <!-- Menuitem -->
-    <string name="action_adjustheight">Corriger l'élévation</string>
-    <string name="action_delete_heightcor">Supprimer la correction d'élévation</string>
+    <string name="action_adjustheight">Corriger l\'élévation</string>
+    <string name="action_delete_heightcor">Supprimer la correction d\'élévation</string>
     <string name="quit">Fermer</string>
     <string name="settings">Paramètres</string>
-    <string name="title_activity_tracker">Traqueur d'activité</string>
+    <string name="title_activity_tracker">Traqueur d\'activité</string>
 
 
-    <string name="nobarometer">L'appareil ne possède pas de baromètre.</string>
+    <string name="nobarometer">L\'appareil ne possède pas de baromètre.</string>
 
     <string name="cancel">Annuler</string>
     <string name="ok">OK</string>
