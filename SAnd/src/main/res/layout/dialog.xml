@@ -1,50 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_width="200dp"
+    android:layout_height="150dp">
 
     <EditText
         android:id="@+id/editHeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="number"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:inputType="number"/>
-
+        android:layout_centerVertical="true"/>
     <Button
         android:id="@+id/increaseHeight"
         android:text="@string/increase"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/editHeight"
         android:layout_toRightOf="@id/editHeight"
-        android:paddingLeft="5dp"
-        />
-
+        android:layout_centerVertical="true" />
     <Button
         android:id="@+id/decreaseHeight"
         android:text="@string/decrease"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/editHeight"
         android:layout_toLeftOf="@id/editHeight"
-        android:paddingRight="5dp"
-        />
-
+        android:layout_centerVertical="true"/>
     <Button
         android:id="@+id/button1"
         android:text="@string/ok"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editHeight"
-        android:layout_alignParentRight="true"
-        />
-
+        android:layout_alignTop="@+id/button2"
+        android:layout_alignLeft="@+id/increaseHeight"
+        android:layout_alignStart="@+id/increaseHeight" />
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editHeight"
-        android:text="@string/cancel" />
+        android:text="@string/cancel"
+        android:layout_below="@+id/decreaseHeight"
+        android:layout_alignLeft="@+id/decreaseHeight"
+        android:layout_alignStart="@+id/decreaseHeight" />
 </RelativeLayout>
