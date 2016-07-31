@@ -31,20 +31,11 @@
         <activity
             android:name="com.platypus.SAnd.AboutActivity"
             android:label="@string/about"
-            android:theme="@style/Theme.Base.AppCompat.Dialog.Light.FixedSize">
+            android:theme="@style/Base.Theme.AppCompat.Dialog.FixedSize">
             <intent-filter>
                 <action android:name=".AboutActivity" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name="com.platypus.SAnd.TrackerActivity"
-            android:label="@string/title_activity_tracker"
-            android:parentActivityName="com.platypus.SAnd.MainActivity">
-        <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.platypus.SAnd.MainActivity" />
         </activity>
     </application>
 
