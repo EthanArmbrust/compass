@@ -80,8 +80,6 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
         unitIsMetric = settings.getBoolean("unit", true);
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         sp.registerOnSharedPreferenceChangeListener(this);
-        
-
     }
 
     @Override
@@ -111,10 +109,6 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
     @Override
     protected void onResume() {
         super.onResume();
-        /*Context context = getApplicationContext();
-                    Toast toast = Toast.makeText(context, "Resume",Toast.LENGTH_LONG);
-                    toast.show();*/
-
         // for the system's orientation sensor registered listeners
         sm.registerListener(this, sm.getDefaultSensor(Sensor.TYPE_ORIENTATION),
                 SensorManager.SENSOR_DELAY_GAME);
@@ -147,7 +141,6 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
                     height = (SensorManager.getAltitude(SensorManager.PRESSURE_STANDARD_ATMOSPHERE, pressure)) + heightdif;
                 } else {
                     height = ((SensorManager.getAltitude(SensorManager.PRESSURE_STANDARD_ATMOSPHERE, pressure)) + heightdif) * 3.2808;
-                    heightdif = (int) (((int) heightdif) * 3.2808);
                 }
 
                 String text;
@@ -250,19 +243,14 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
         et.setText(String.valueOf(h));
 
         ok.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 String s = et.getText().toString();
                 int value = Integer.parseInt(s);
-                if (value == h) {
-
-                } else {
-                    if (value > height) {
-                        heightdif = value - ((int) height);
-                    } else {
-                        heightdif = -(((int) height) - value);
-                    }
+                if (value > height) {
+                    heightdif = value - ((int) height);
+                } else if (height > value) {
+                    heightdif = -(((int) height) - value);
                 }
                 d.dismiss();
                 Context context = getApplicationContext();
@@ -273,7 +261,6 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 d.dismiss(); // dismiss the dialog
             }
         });
@@ -316,5 +303,7 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         String string = sp.getString("PREF_UNIT", "none");
         unitIsMetric = string.equals("metric");
+        if(!unitIsMetric) heightdif *= 3.2808;
+                else heightdif /= 3.2808;
     }
 }
