@@ -2,7 +2,7 @@
 <resources>
 
     <!-- App Name -->
-    <string name="app_name">SAnd</string>
+    <string name="app_name">Compass</string>
 
     <!-- MainActivity -->
     <string name="pressure">Air Pressure</string>

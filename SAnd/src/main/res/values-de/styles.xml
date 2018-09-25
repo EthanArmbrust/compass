@@ -2,7 +2,7 @@
 <resources>
 
 
-    <style name="Theme.myTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name = "darkCompass" parent="Theme.AppCompat">
 
     </style>
 

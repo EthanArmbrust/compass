@@ -56,6 +56,8 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        setTheme(R.style.AppTheme_Dark);
         super.onCreate(savedInstanceState);
 
         //check if device has barometer
@@ -176,7 +178,7 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
             }
         } else {
             degree = Math.round(event.values[0]);
-            tv.setText(getString(R.string.orientation) + ": " + Integer.toString((int) degree) + "°");
+            tv.setText(Integer.toString((int) degree) + "°");
 
             //animation for rotating the image
             RotateAnimation animation = new RotateAnimation(currentDegree, -degree, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);

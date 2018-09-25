@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#c41717</color>
+    <color name="textColorPrimary">#ffffff</color>
+    <color name="textColorSecondary">#cecbcb</color>
+    <color name="textColorPrimaryInverse">#000000</color>
+    <color name="textColorSecondaryInverse">#333333</color>
 
 </resources>
