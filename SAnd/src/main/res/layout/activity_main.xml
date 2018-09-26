@@ -2,10 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="400dp"
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
-    android:paddingTop="100dp"
     android:weightSum="1"
 
     tools:context=".MainActivity">
@@ -13,13 +12,9 @@
 
     <ImageView
         android:id="@+id/imageViewCompass"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:paddingBottom="40dp"
-        android:src="@drawable/compass1"></ImageView>
-
-
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_compass_mine"></ImageView>
 
 
     <TextView
@@ -28,15 +23,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageViewCompass"
-        android:paddingBottom="20dp"
-        android:paddingTop="30dp"
-        android:text="100°"
-        android:gravity="right"
-        android:layout_gravity="right"
         android:layout_alignParentRight="true"
+        android:layout_gravity="right"
+        android:gravity="right"
+        android:paddingTop="30dp"
+        android:paddingBottom="20dp"
+        android:text="100°"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="82sp" />
-
 
 
     <TextView
